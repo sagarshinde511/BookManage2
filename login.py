@@ -25,7 +25,7 @@ def main():
             if login(username, password):
                 st.session_state.logged_in = True
                 st.success("Login successful! Click the link below to proceed.")
-                st.markdown("[Go to Google](https://www.google.com)", unsafe_allow_html=True)
+                st.markdown("[Go to Landing Page](https://bookmanagment-mvfrpvyvxcbhn4mnh4khvr.streamlit.app/)", unsafe_allow_html=True)
             else:
                 st.sidebar.error("Invalid username or password")
     else:
