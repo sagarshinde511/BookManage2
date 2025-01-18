@@ -1,9 +1,8 @@
 import streamlit as st
-import webbrowser
 
 # Default login credentials
 default_username = "admin"
-default_password = "password"
+default_password = "admin"
 
 # Session state for login status
 if 'logged_in' not in st.session_state:
@@ -25,14 +24,14 @@ def main():
         if st.sidebar.button("Login"):
             if login(username, password):
                 st.session_state.logged_in = True
-                st.success("Login successful! Redirecting to Google...")
-                webbrowser.open("https://www.google.com")
+                st.success("Login successful! Click the link below to proceed.")
+                st.markdown("[Go to Google](https://www.google.com)", unsafe_allow_html=True)
             else:
                 st.sidebar.error("Invalid username or password")
     else:
         st.sidebar.success("You are logged in!")
-        st.write("Welcome! Redirecting to Google...")
-        webbrowser.open("https://www.google.com")
+        st.write("Welcome! Click the link below to proceed.")
+        st.markdown("[Go to Google](https://www.google.com)", unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
